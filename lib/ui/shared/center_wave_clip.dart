@@ -29,5 +29,5 @@ class CenterWaveClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) =>
-      true; //return false for the moment
+      false; //return false for the moment
 }
