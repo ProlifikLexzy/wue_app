@@ -31,27 +31,48 @@ class _AuthTabbedPageState extends State<AuthTabbedPage>
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Placeholder(
-          fallbackHeight: 100,
-          fallbackWidth: 100,
-        ),
-        TabBar(
-          controller: _tabController,
-          tabs: [
-            _individualTab(context, "Login"),
-            _individualTab(context, "Signup")
-          ],
-        ),
-        TabBarView(
-          controller: _tabController,
-          children: myTabs.map((Tab tab) {
-            return Center(child: Text(tab.text!));
-          }).toList(),
-        ),
-      ],
+    return DefaultTabController(
+      length: 2,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Container(
+            child: TabBar(tabs: [
+              _individualTab(context, "Login"),
+              _individualTab(context, "Signup")
+            ]),
+          ),
+          Container(
+            //Add this to give height
+            height: MediaQuery.of(context).size.height,
+            child: TabBarView(children: [
+              Container(
+                child: Text(
+                  "Home Body",
+                ),
+              ),
+              Container(
+                child: Text("Articles Body"),
+              ),
+            ]),
+          ),
+        ],
+      ),
     );
+    // return TabBar(
+    //   controller: _tabController,
+    //   tabs: [
+    //     _individualTab(context, "Login"),
+    //     _individualTab(context, "Signup")
+    //   ],
+    // TabBarView(
+    //   controller: _tabController,
+    //   children: myTabs.map((Tab tab) {
+    //     return Center(child: Text(tab.text!));
+    //   }).toList(),
+    // ),
+    //);
   }
 
   Widget _individualTab(BuildContext context, String title) {

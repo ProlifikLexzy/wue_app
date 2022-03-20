@@ -8,9 +8,11 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      child: _getWidgetForm(context),
-      painter: CurvePainter(),
+    return SingleChildScrollView(
+      child: CustomPaint(
+        child: _getWidgetForm(context),
+        painter: CurvePainter(),
+      ),
     );
   }
 
@@ -47,6 +49,7 @@ class AuthPage extends StatelessWidget {
   }
 
   Widget _getLoginForm(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return Card(
       color: Colors.black,
       shape: RoundedRectangleBorder(
@@ -57,9 +60,8 @@ class AuthPage extends StatelessWidget {
       shadowColor: colorOne,
       margin: EdgeInsets.all(20),
       child: Container(
-        height: 591,
         width: 331,
-        child: Align(
+        child: const Align(
           alignment: Alignment.topCenter,
           child: AuthTabbedPage(),
         ),
