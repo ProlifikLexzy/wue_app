@@ -8,10 +8,13 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: CustomPaint(
-        child: _getWidgetForm(context),
-        painter: CurvePainter(),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: CustomPaint(
+          child: _getWidgetForm(context),
+          painter: CurvePainter(),
+        ),
       ),
     );
   }
@@ -58,9 +61,9 @@ class AuthPage extends StatelessWidget {
       ),
       elevation: 8,
       shadowColor: colorOne,
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(24),
       child: Container(
-        width: 331,
+        height: 591,
         child: const Align(
           alignment: Alignment.topCenter,
           child: AuthTabbedPage(),
